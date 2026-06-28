@@ -50,7 +50,7 @@ loginBtn.addEventListener('click', () => {
     passwordInput.classList.toggle('error', errors.password);
 
     if (!isValid) {
-        message.textContent = 'Please fill in both fields.';
+        alert('Please fill in both username and password fields.');
         return;
     }
 
@@ -65,10 +65,9 @@ loginBtn.addEventListener('click', () => {
         const greetingHtml = `${decodedGreeting} ${username}, you have successfully logged in!`;
         showLoggedInView(greetingHtml);
         showLocationDetails(savedLocationData);
-        message.textContent = '';
     }).catch((error) => {
         console.error(error);
-        message.textContent = 'Could not determine greeting. Please try again.';
+        alert('Could not determine greeting. Please try again.');
     });
 });
 
@@ -80,5 +79,6 @@ logoutBtn.addEventListener('click', () => {
     usernameInput.classList.remove('error');
     passwordInput.classList.remove('error');
 
+    alert('You have been logged out.');
     showLoginView();
 });
