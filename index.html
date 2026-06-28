@@ -4,31 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>Hello — Localized Greeting App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="login-card">
-        <h1>Hello</h1>
+        <h1>Hello — Localized Greeting App</h1>
 
         <div id="login-view">
-            <div class="field">
-                <label for="username">User Name</label>
-                <input type="text" id="username" name="username">
-            </div>
+            <form id="login-form">
+                <div class="field">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" autocomplete="username">
+                </div>
 
-            <div class="field">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password">
+                </div>
+
                 <div class="field">
                     <label for="lang-override">Language Code (optional)</label>
                     <input type="text" id="lang-override" name="lang-override" placeholder="e.g. fr, de, ja">
                 </div>
-            </div>
 
-            <button id="login-btn" type="button">Login</button>
+                <button id="login-btn" type="button">Login</button>
+            </form>
         </div>
 
         <div id="logged-in-view" class="hidden">
@@ -37,7 +40,6 @@
             <button id="logout-btn" type="button">Logout</button>
         </div>
 
-        <p id="message"></p>
     </div>
 
     <script type="module" src="main.js"></script>
