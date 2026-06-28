@@ -1,11 +1,11 @@
 export async function getLocation() {
-    const response = await fetch('http://ip-api.com/json/');
+    const response = await fetch('https://free.freeipapi.com/api/json');
     if (!response.ok) {
         throw new Error('Failed to fetch location');
     }
     const data = await response.json();
-    if (data.status === 'fail') {
-        throw new Error(data.message || 'Location lookup failed');
+    if (!data.countryCode || !data.ipAddress) {
+        throw new Error('Location response missing required fields');
     }
     return data;
 }
