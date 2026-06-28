@@ -22,6 +22,10 @@
             <div class="field">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password">
+                <div class="field">
+                    <label for="lang-override">Language Code (optional)</label>
+                    <input type="text" id="lang-override" name="lang-override" placeholder="e.g. fr, de, ja">
+                </div>
             </div>
 
             <button id="login-btn" type="button">Login</button>
@@ -29,6 +33,7 @@
 
         <div id="logged-in-view" class="hidden">
             <p id="welcome-message"></p>
+            <div id="location-details"></div>
             <button id="logout-btn" type="button">Logout</button>
         </div>
 
