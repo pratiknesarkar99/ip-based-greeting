@@ -1,4 +1,4 @@
-import { validateLogin } from './auth.js';
+import { validateLogin, decodeHtmlEntities } from './auth.js';
 import { getLocation, getGreeting } from './api.js';
 
 const usernameInput = document.getElementById('username');
@@ -21,16 +21,13 @@ loginBtn.addEventListener('click', () => {
         return;
     }
 
-    message.textContent = ''; // temporary, replaced in Phase 3/4
-});
-
-
-// Temp
-getLocation().then((data) => {
-    console.log('Location data:', data);
-    return getGreeting(data.countryCode, data.query);
-}).then((greeting) => {
-    console.log('Greeting data:', greeting);
-}).catch((error) => {
-    console.error('Error:', error);
+    getLocation().then((locationData) => {
+        return getGreeting(locationData.countryCode, locationData.query);
+    }).then((greetingData) => {
+        const decodedGreeting = decodeHtmlEntities(greetingData.hello);
+        message.textContent = `${decodedGreeting} ${username}, you have successfully logged in!`;
+    }).catch((error) => {
+        console.error(error);
+        message.textContent = 'Could not determine greeting. Please try again.';
+    });
 });

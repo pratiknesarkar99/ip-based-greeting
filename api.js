@@ -3,7 +3,11 @@ export async function getLocation() {
     if (!response.ok) {
         throw new Error('Failed to fetch location');
     }
-    return response.json();
+    const data = await response.json();
+    if (data.status === 'fail') {
+        throw new Error(data.message || 'Location lookup failed');
+    }
+    return data;
 }
 
 export async function getGreeting(languageCode, ip) {

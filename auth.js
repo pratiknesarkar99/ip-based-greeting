@@ -8,3 +8,12 @@ export function validateLogin(username, password) {
 
     return { isValid, errors };
 }
+
+export function decodeHtmlEntities(text) {
+    if (typeof text !== 'string' || text.length === 0) {
+        return 'Hello';
+    }
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = text;
+    return textarea.value;
+}
