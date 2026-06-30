@@ -2,6 +2,8 @@
 
 A geolocation-based greeting app. The app detects a visitor's approximate location via IP, looks up a culturally appropriate greeting in their native language, and displays it alongside a mock login/logout flow and extended location details.
 
+<img width="786" height="694" alt="Screenshot 2026-06-29 at 9 07 36 PM" src="https://github.com/user-attachments/assets/13bf61ac-da71-47ed-9863-f84a775e5739" />
+
 ## Features
 
 - Mock login with username/password validation (empty-field detection, red border + error feedback)
